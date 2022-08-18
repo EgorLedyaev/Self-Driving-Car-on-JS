@@ -12,9 +12,9 @@ class Sensor{
     update(roadBorders){
         this.#castRays();
         this.readings=[];
-        for(const element of this.rays){
+        for(let i=0;i<this.rays.length;i++){
             this.readings.push(
-                this.#getReading(element,roadBorders)
+                this.#getReading(this.rays[i],roadBorders)
             );
         }
     }
@@ -22,12 +22,12 @@ class Sensor{
     #getReading(ray,roadBorders){
         let touches=[];
 
-        for(const element of roadBorders){
+        for(let i=0;i<roadBorders.length;i++){
             const touch=getIntersection(
                 ray[0],
                 ray[1],
-                element[0],
-                element[1]
+                roadBorders[i][0],
+                roadBorders[i][1]
             );
             if(touch){
                 touches.push(touch);
