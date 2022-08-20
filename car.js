@@ -46,13 +46,13 @@ class Car{
     }
 
     #assessDamage(roadBorders,traffic){
-        for(let i=0;i<roadBorders.length;i++){
-            if(polysIntersect(this.polygon,roadBorders[i])){
+        for(const element of roadBorders){
+            if(polysIntersect(this.polygon,element)){
                 return true;
             }
         }
-        for(let i=0;i<traffic.length;i++){
-            if(polysIntersect(this.polygon,traffic[i].polygon)){
+        for(const element of traffic){
+            if(polysIntersect(this.polygon,element.polygon)){
                 return true;
             }
         }
